@@ -8,7 +8,12 @@ import {
   RefreshCw,
 } from 'lucide-react'
 
-const Terminal = ({ command, output }) => {
+interface TerminalProps {
+  command: string;
+  output?: React.ReactNode;
+}
+
+const Terminal = ({ command, output }: TerminalProps) => {
   return (
     <div className='bg-zinc-950 p-6 rounded-lg border border-zinc-800 font-mono text-sm'>
       <div className='flex items-center'>
