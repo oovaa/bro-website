@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import { Terminal, Github, Download, Command, Settings, RefreshCw, Trash2 } from 'lucide-react';
 
 function App() {
@@ -109,6 +110,8 @@ AI: Palestine has a rich history...</code>
           </div>
         </div>
       </footer>
+    <Analytics />
+
     </div>
   );
 }
