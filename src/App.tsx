@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react"
-import { Terminal, Github, Download, Command, Settings, RefreshCw, Trash2 } from 'lucide-react';
+import { Terminal, Github, Download, Command, Settings, RefreshCw } from 'lucide-react';
 
 function App() {
   return (
