@@ -8,6 +8,30 @@ import {
   RefreshCw,
 } from "lucide-react";
 
+
+interface TerminalComponentProps {
+  command: string;
+  output?: React.ReactNode;
+}
+
+const TerminalComponent: React.FC<TerminalComponentProps> = ({ command, output }) => {
+  return (
+    <div className="bg-zinc-950 p-6 rounded-lg border border-zinc-800 font-mono text-sm">
+      <div className="flex items-center">
+        <span className="text-green-400">$</span>
+        <span className="ml-2 text-zinc-100">{command}</span>
+      </div>
+      {output && (
+        <div className="mt-2 text-zinc-300">
+          {output}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-100">
@@ -117,26 +141,35 @@ function App() {
 
       {/* Usage Section */}
       <section className="py-16 bg-zinc-900/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-400">Usage Examples</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
-              <h3 className="text-xl font-semibold mb-4 text-zinc-100">Interactive Mode</h3>
-              <pre className="bg-zinc-950 p-4 rounded-md overflow-x-auto border border-zinc-800 font-mono">
-                <code>$ bro 
-You: Tell me about Palestine
-AI: Palestine has a rich history...</code>
-              </pre>
-            </div>
-            <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-800">
-              <h3 className="text-xl font-semibold mb-4 text-zinc-100">Direct Mode</h3>
-              <pre className="bg-zinc-950 p-4 rounded-md overflow-x-auto border border-zinc-800 font-mono">
-                <code>$ bro tell me about Palestine</code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center mb-12 text-blue-400">Usage Examples</h2>
+    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div>
+        <h3 className="text-xl font-semibold mb-4 text-zinc-100">Interactive Mode</h3>
+        <TerminalComponent
+          command="bro"
+          output={
+            <>
+              <div>You: Tell me about Palestine</div>
+              <div>Palestine has a rich history...</div>
+            </>
+          }
+        />
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold mb-4 text-zinc-100">Direct Mode</h3>
+        <TerminalComponent
+          command="bro tell me about Palestine"
+          output={
+        <>
+          <div>Palestine is a region in Western Asia...</div>
+        </>
+          }
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="py-8 text-center text-zinc-400 bg-zinc-950">
