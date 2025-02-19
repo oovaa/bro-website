@@ -9,8 +9,8 @@ import {
 } from 'lucide-react'
 
 interface TerminalProps {
-  command: string;
-  output?: React.ReactNode;
+  command: string
+  output?: React.ReactNode
 }
 
 const Terminal = ({ command, output }: TerminalProps) => {
@@ -24,6 +24,7 @@ const Terminal = ({ command, output }: TerminalProps) => {
     </div>
   )
 }
+
 function App() {
   return (
     <div className='min-h-screen bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-100'>
@@ -33,10 +34,14 @@ function App() {
           <TerminalIcon size={64} className='text-blue-500' />
         </div>
         <h1 className='text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-teal-300 text-transparent bg-clip-text'>
-          Command R+ AI Assistant
+          Groq & DeepSeek AI Assistant
         </h1>
         <p className='text-xl text-zinc-400 mb-8'>
-          Your intelligent CLI companion powered by Cohere
+          Your intelligent CLI companion powered by Groq and DeepSeek
+        </p>
+        <p className='text-lg text-zinc-300/50 mb-8'>
+          Announcing version 3.0 with enhanced features and performance
+          improvements!
         </p>
         <div className='flex justify-center gap-4'>
           <a
@@ -101,7 +106,7 @@ function App() {
                 Easy Configuration
               </h3>
               <p className='text-zinc-400'>
-                Simple setup with your Cohere API key and automatic environment
+                Simple setup with your Groq API key and automatic environment
                 configuration.
               </p>
             </div>
@@ -148,7 +153,7 @@ function App() {
                   3. Install with API Key
                 </h3>
                 <pre className='bg-zinc-950 p-4 rounded-md overflow-x-auto border border-zinc-800 font-mono'>
-                  <code>. ./install &lt;COHERE_API_KEY&gt;</code>
+                  <code>./install &lt;GROQ_API_KEY&gt;</code>
                 </pre>
               </div>
             </div>
@@ -162,8 +167,8 @@ function App() {
           <h2 className='text-3xl font-bold text-center mb-12 text-blue-400'>
             Usage Examples
           </h2>
-          <div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-            <div>
+          <div className='flex flex-col md:flex-row md:flex-wrap gap-8 max-w-4xl mx-auto'>
+            <div className='flex-1'>
               <h3 className='text-xl font-semibold mb-4 text-zinc-100'>
                 Interactive Mode
               </h3>
@@ -171,21 +176,49 @@ function App() {
                 command='bro'
                 output={
                   <>
-                    <div>You: Tell me about Palestine</div>
-                    <div>Palestine has a rich history...</div>
+                    <div>You: Explain quantum computing</div>
+                    <div style={{ color: 'cyan' }}>
+                      <p style={{ color: 'gray' }}>
+                        {' '}
+                        the user is asking about quantum computing which is
+                        ......
+                      </p>
+                      Quantum computing uses qubits to perform...
+                    </div>
                   </>
                 }
               />
             </div>
-            <div>
+            <div className='flex-1'>
               <h3 className='text-xl font-semibold mb-4 text-zinc-100'>
                 Direct Mode
               </h3>
               <Terminal
-                command='bro tell me about Palestine'
+                command='bro "What is Groq?"'
                 output={
                   <>
-                    <div>Palestine is a region in Western Asia...</div>
+                    <div style={{ color: 'cyan' }}>
+                      <p style={{ color: 'gray' }}>
+                        {' '}
+                        ok so i need to tell him ......
+                      </p>
+                      Groq is a hardware company specializing in...
+                    </div>
+                  </>
+                }
+              />
+            </div>
+            <div className='flex-1'>
+              <h3 className='text-xl font-semibold mb-4 text-zinc-100'>
+                Direct Mode (silent)
+              </h3>
+              <Terminal
+                command='bro -s What is Groq?'
+                output={
+                  <>
+                    <div style={{ color: 'cyan' }}>
+                      Groq is a hardware company specializing in...
+                    </div>
                   </>
                 }
               />
