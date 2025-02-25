@@ -71,12 +71,13 @@ function App() {
             <video
               width='640'
               height='360'
+              autoPlay
+              loop
+              muted
               controls
-              autoPlay={true}
-              loop={true}
+              src='/demo.webm'
               className='rounded-lg border border-zinc-800'
             >
-              <source src='/demo.webm' type='video/mp4' />
               Your browser does not support the video tag.
             </video>
           </div>
