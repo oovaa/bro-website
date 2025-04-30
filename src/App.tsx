@@ -32,12 +32,15 @@ export default function App() {
           <div className="animate-float inline-block">
             <TerminalIcon size={64} className="text-blue-500" />
           </div>
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-teal-300 to-purple-400 text-transparent bg-clip-text animate-gradient">
-            Groq & DeepSeek AI Assistant
-          </h1>
-          <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-            Your intelligent CLI companion powered by Groq and DeepSeek
-          </p>
+          // In the hero section, update the title and description:
+<h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-teal-300 to-purple-400 text-transparent bg-clip-text animate-gradient">
+  bro CLI Tool
+</h1>
+<p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+  Your powerful command-line assistant for developer productivity
+</p>
+
+// Update feature section titles and descriptions as needed
           <p className="text-lg text-zinc-300/50 mb-8">
             Announcing version 3.0 with enhanced features and performance improvements!
           </p>
