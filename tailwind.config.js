@@ -1,24 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ['class', '[data-theme="dark"]'],
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}'
-  ],
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        // Extended color palette
         zinc: {
+          50: '#fafafa',
+          100: '#f4f4f5',
+          200: '#e4e4e7',
+          300: '#d4d4d8',
+          400: '#a1a1aa',
+          500: '#71717a',
+          600: '#52525b',
+          700: '#3f3f46',
+          800: '#27272a',
           850: '#1e1e1e',
-          950: '#0a0a0a',
+          900: '#18181b',
+          950: '#09090b',
         },
       },
       animation: {
-        'gradient': 'gradient 8s ease infinite',
-        'float': 'float 6s ease-in-out infinite',
+        gradient: 'gradient 8s ease infinite',
+        float: 'float 6s ease-in-out infinite',
         'fade-in': 'fadeIn 0.5s ease-out forwards',
-        'blink': 'blink 1.2s step-end infinite',
+        blink: 'blink 1.2s step-end infinite',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
@@ -43,14 +49,13 @@ export default {
         '200%': '200% 200%',
       },
       boxShadow: {
-        'terminal': '0 10px 30px -10px rgba(0, 0, 0, 0.2)',
+        terminal: '0 10px 30px -10px rgba(0, 0, 0, 0.2)',
         'terminal-dark': '0 10px 30px -10px rgba(0, 0, 0, 0.4)',
       },
     },
   },
   plugins: [
-    // Custom plugin for terminal-specific styles
-    function({ addComponents }) {
+    function ({ addComponents }) {
       addComponents({
         '.terminal-text': {
           '&::after': {
@@ -62,9 +67,9 @@ export default {
             animation: 'blink 1.2s step-end infinite',
             marginLeft: '0.25rem',
             verticalAlign: 'baseline',
-          }
-        }
-      });
-    }
+          },
+        },
+      })
+    },
   ],
-};
+}
