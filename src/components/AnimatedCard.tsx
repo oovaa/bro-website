@@ -20,8 +20,9 @@ export const AnimatedCard = ({
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6 }}
-      // Adjusted background, border, hover, and shadow for light/dark modes
-      className='bg-white dark:bg-zinc-800 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-600 transition-all hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-900/20 relative group h-full'
+      // Added explicit duration-300 and ease-in-out for smoother border/shadow transitions.
+      // Tailwind's 'transition-all' will apply this to all animatable properties.
+      className='bg-white dark:bg-zinc-800 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-600/20 relative group h-full'
     >
       {/* Adjusted gradient overlay */}
       <div className='absolute inset-0 rounded-lg bg-gradient-to-r from-blue-50/50 to-teal-50/50 dark:from-blue-600/10 dark:to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />

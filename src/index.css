@@ -9,29 +9,29 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f1f1f1; /* Corresponds roughly to slate-100/zinc-100 */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #a1a1aa; /* Corresponds roughly to slate-400/zinc-400 */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #71717a; /* Corresponds roughly to slate-500/zinc-500 */
 }
 
 /* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #09090b; /* zinc-950 */
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: #3b82f6; /* blue-500 */
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: #2563eb; /* blue-600 */
 }
 
 /* Smooth scrolling */
@@ -41,20 +41,12 @@ html {
 
 /* Selection styles */
 ::selection {
-  background: #3b82f6;
-  color: #f8fafc;
+  background: #3b82f6; /* blue-500 */
+  color: #f8fafc; /* slate-50 / white */
 }
 
-/* Animation styles */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
-}
+/*
+  Redundant fadeIn animation removed from here as it's handled by Tailwind config.
+  If 'animate-fade-in' class was used from here, ensure it's replaced by 
+  Tailwind's 'animate-fade-in' utility.
+*/

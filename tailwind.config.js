@@ -51,6 +51,8 @@ export default {
       boxShadow: {
         terminal: '0 10px 30px -10px rgba(0, 0, 0, 0.2)',
         'terminal-dark': '0 10px 30px -10px rgba(0, 0, 0, 0.4)',
+        'icon-float': '0px 8px 20px rgba(0, 0, 0, 0.12)', // Enhanced shadow
+        'icon-float-dark': '0px 8px 20px rgba(0, 0, 0, 0.35)', // Enhanced dark shadow
       },
     },
   },
