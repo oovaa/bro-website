@@ -47,7 +47,7 @@ export const NavBar = () => {
   }
 
   const navLinkClasses =
-    'block text-slate-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors py-3 border-b border-slate-200 dark:border-zinc-700 w-full text-left'
+    'block text-slate-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors py-3 border-b border-slate-200 dark:border-zinc-700 w-full text-left px-4' // Added px-4 for mobile links
   const desktopNavLinkClasses =
     'text-slate-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors'
 
@@ -55,7 +55,7 @@ export const NavBar = () => {
     <nav className='fixed w-full top-0 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-slate-200 dark:border-zinc-800 z-50 transition-colors duration-300 ease-in-out'>
       <div className='container mx-auto px-4 py-4 flex items-center justify-between'>
         <a
-          href='#'
+          href='#' // Link to top of page
           onClick={closeMobileMenu}
           className='flex items-center gap-2'
           aria-label='Homepage'
@@ -110,51 +110,51 @@ export const NavBar = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className='md:hidden bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md pb-4 px-4 absolute top-full left-0 w-full border-b border-slate-200 dark:border-zinc-800'>
-          <div className='flex flex-col gap-0 pt-2'>
-            {' '}
-            {/* Reduced gap for tighter list */}
+        <div className='md:hidden bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md pb-4 absolute top-full left-0 w-full border-b border-slate-200 dark:border-zinc-800 shadow-lg'>
+          <div className='flex flex-col'>
             <a
               href='#features'
-              onClick={closeMobileMenu}
               className={navLinkClasses}
+              onClick={closeMobileMenu}
             >
               Features
             </a>
             <a
               href='#installation'
-              onClick={closeMobileMenu}
               className={navLinkClasses}
+              onClick={closeMobileMenu}
             >
               Install
             </a>
             <a
               href='#usage'
-              onClick={closeMobileMenu}
               className={navLinkClasses}
+              onClick={closeMobileMenu}
             >
               Usage
             </a>
+            <div className='px-4 py-3 border-b border-slate-200 dark:border-zinc-700 w-full flex justify-between items-center'>
+              <span className='text-slate-600 dark:text-zinc-400'>Theme</span>
+              <button
+                onClick={() => {
+                  setDarkMode(!darkMode)
+                  // Optionally close menu on theme change: closeMobileMenu()
+                }}
+                className='p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-800 transition-colors text-slate-600 dark:text-zinc-400'
+                aria-label='Toggle dark mode'
+              >
+                {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+            </div>
             <a
               href='https://github.com/oovaa/bro'
+              className={`${navLinkClasses} border-b-0`} // Remove border for last item
               onClick={closeMobileMenu}
-              className={`${navLinkClasses} flex items-center gap-2`} // Added flex for icon alignment
               target='_blank'
               rel='noopener noreferrer'
             >
-              <Github size={20} /> GitHub
+              GitHub
             </a>
-            <button
-              onClick={() => {
-                setDarkMode(!darkMode)
-                closeMobileMenu()
-              }}
-              className={`${navLinkClasses} flex items-center gap-2 border-b-0`} // Removed bottom border for last item
-              aria-label='Toggle dark mode'
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-              <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
-            </button>
           </div>
         </div>
       )}

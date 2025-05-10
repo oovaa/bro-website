@@ -9,29 +9,30 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Corresponds roughly to slate-100/zinc-100 */
+  background: transparent; /* Updated */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a1a1aa; /* Corresponds roughly to slate-400/zinc-400 */
+  background: #d4d4d8; /* Updated to slate-300 */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #71717a; /* Corresponds roughly to slate-500/zinc-500 */
+  background: #a1a1aa; /* Updated to slate-400 */
 }
 
 /* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-track {
-  background: #09090b; /* zinc-950 */
+  background: transparent; /* Updated */
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #3b82f6; /* blue-500 */
+  background: #3f3f46; /* Updated to zinc-700 */
+  border-radius: 4px; /* Added for consistency */
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb; /* blue-600 */
+  background: #52525b; /* Updated to zinc-600 */
 }
 
 /* Smooth scrolling */
@@ -45,8 +46,13 @@ html {
   color: #f8fafc; /* slate-50 / white */
 }
 
-/*
-  Redundant fadeIn animation removed from here as it's handled by Tailwind config.
-  If 'animate-fade-in' class was used from here, ensure it's replaced by 
-  Tailwind's 'animate-fade-in' utility.
-*/
+/* Custom utility for thin scrollbars (if needed elsewhere, otherwise direct styling is fine) */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #a1a1aa transparent; /* thumb track */
+  }
+  .dark .scrollbar-thin {
+    scrollbar-color: #3f3f46 transparent; /* thumb track for dark mode */
+  }
+}

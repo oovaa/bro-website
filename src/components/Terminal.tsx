@@ -30,6 +30,8 @@ export const Terminal = ({
   return (
     <div className='w-full bg-slate-100 dark:bg-zinc-850 p-4 sm:p-6 rounded-lg border border-slate-300 dark:border-zinc-700 font-mono text-xs sm:text-sm relative group transition-colors duration-300 ease-in-out shadow-md shadow-slate-200/70 dark:shadow-xl dark:shadow-zinc-900/30'>
       <div className='absolute top-2.5 left-3 sm:top-3 sm:left-4 flex gap-1.5 sm:gap-2'>
+        {' '}
+        {/* Adjusted dot sizes/positioning via sm: prefixes */}
         <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/90 dark:bg-red-500/70' />
         <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/90 dark:bg-yellow-500/70' />
         <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/90 dark:bg-green-500/70' />
@@ -45,14 +47,16 @@ export const Terminal = ({
             <TerminalIcon className='h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-600 dark:text-emerald-400 mr-1.5 sm:mr-2' />
             <span className='text-emerald-600 dark:text-emerald-400'>$</span>
           </div>
-          <span className='ml-2 text-slate-800 dark:text-zinc-200 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-slate-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-transparent'>
+          {/* Added overflow-x-auto and scrollbar styling */}
+          <span className='ml-2 text-slate-800 dark:text-zinc-200 overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-slate-400 dark:scrollbar-thumb-zinc-600 scrollbar-track-transparent pr-2'>
             {command}
           </span>
 
           {showCopy && (
             <button
               onClick={copyToClipboard}
-              className={`ml-auto flex items-center gap-1 pl-3 pr-2 py-1 rounded text-xs ${
+              className={`ml-auto flex items-center shrink-0 gap-1 pl-3 pr-2 py-1 rounded text-xs ${
+                // Added shrink-0
                 copied
                   ? 'text-emerald-700 dark:text-emerald-400'
                   : 'text-slate-500 hover:text-slate-800 dark:text-zinc-400 dark:hover:text-zinc-200 opacity-50 group-hover:opacity-100 focus:opacity-100'
@@ -62,12 +66,14 @@ export const Terminal = ({
               {copied ? (
                 <>
                   <Check size={14} />
-                  <span>Copied</span>
+                  <span className='hidden sm:inline'>Copied</span>{' '}
+                  {/* "Copied" text hidden on small screens */}
                 </>
               ) : (
                 <>
                   <Copy size={14} />
-                  <span className='hidden sm:inline'>Copy</span>
+                  <span className='hidden sm:inline'>Copy</span>{' '}
+                  {/* "Copy" text hidden on small screens */}
                 </>
               )}
             </button>
@@ -80,9 +86,10 @@ export const Terminal = ({
             }`}
           >
             {output}
-            {animate /* Only show cursor if there's output and animation is enabled */ && (
-              <span className='inline-block ml-1 w-2 h-3.5 sm:h-4 bg-slate-800 dark:bg-zinc-200 animate-blink align-text-bottom' />
-            )}
+            {animate &&
+              output /* Only show cursor if there's output and animation is enabled */ && (
+                <span className='inline-block ml-1 w-2 h-3.5 sm:h-4 bg-slate-800 dark:bg-zinc-200 animate-blink align-text-bottom' /> // Adjusted cursor size and alignment
+              )}
           </div>
         )}
       </div>
