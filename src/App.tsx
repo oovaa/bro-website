@@ -149,7 +149,7 @@ export default function App() {
             </AnimatedCard>
             <AnimatedCard icon={Command} title='Flexible Usage Modes'>
               Choose between interactive sessions for deep work or direct mode 
-              for quick queries. Silent mode for script integration.
+              for quick queries.
             </AnimatedCard>
           </div>
         </div>
@@ -248,7 +248,7 @@ export default function App() {
                 <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
                   3. Install with API Key
                 </h3>
-                <Terminal command='./install <GROQ_API_KEY>' />
+                <Terminal command='./install GROQ_API_KEY' />
               </div>
             </div>
           </motion.div>
@@ -270,7 +270,7 @@ export default function App() {
           >
             Usage Examples
           </motion.h2>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto'>
+          <div className='grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto'>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -287,9 +287,6 @@ export default function App() {
                   <>
                     <div>You: Explain quantum computing</div>
                     <div className='text-sky-600 dark:text-cyan-400'>
-                      <p className='text-slate-500 dark:text-zinc-500 text-xs sm:text-sm'>
-                        the user is asking about quantum computing which is...
-                      </p>
                       Quantum computing uses qubits to perform...
                     </div>
                   </>
@@ -311,36 +308,13 @@ export default function App() {
                 output={
                   <>
                     <div className='text-sky-600 dark:text-cyan-400'>
-                      <p className='text-slate-500 dark:text-zinc-500 text-xs sm:text-sm'>
-                        ok so I need to tell him...
-                      </p>
                       Groq is a hardware company specializing in...
                     </div>
                   </>
                 }
               />
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-              viewport={{ once: true }}
-              className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 shadow-lg shadow-slate-200/50 dark:shadow-lg dark:shadow-zinc-900/20'
-            >
-              <h3 className='text-lg sm:text-xl font-semibold mb-4 text-slate-700 dark:text-zinc-100'>
-                Direct Mode (silent)
-              </h3>
-              <Terminal
-                command='bro -s What is Groq?'
-                output={
-                  <>
-                    <div className='text-sky-600 dark:text-cyan-400'>
-                      Groq is a hardware company specializing in...
-                    </div>
-                  </>
-                }
-              />
-            </motion.div>
+
           </div>
         </div>
       </section>
