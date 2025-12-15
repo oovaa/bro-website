@@ -7,6 +7,10 @@ import {
   Command,
   Settings,
   RefreshCw,
+  Zap,
+  Code,
+  MessageSquare,
+  Layers,
 } from 'lucide-react'
 import { Terminal } from './components/Terminal'
 import { NavBar } from './components/NavBar'
@@ -34,12 +38,22 @@ export default function App() {
           <h1 className='text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-teal-400 to-purple-500 dark:from-blue-400 dark:via-teal-300 dark:to-purple-400 text-transparent bg-clip-text animate-gradient'>
             bro CLI Tool
           </h1>
-          <p className='text-lg sm:text-xl text-slate-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto px-4'>
-            Your powerful command-line assistant for developer productivity
+          <p className='text-lg sm:text-xl text-slate-600 dark:text-zinc-400 mb-4 max-w-2xl mx-auto px-4'>
+            Lightning-fast AI assistant powered by Groq - Get instant answers, code generation, and debugging help directly in your terminal
           </p>
+          <div className='flex flex-wrap justify-center gap-2 mb-6 px-4'>
+            <span className='bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium'>
+              ⚡ Groq-Powered
+            </span>
+            <span className='bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-sm font-medium'>
+              🚀 Ultra-Fast Responses
+            </span>
+            <span className='bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-sm font-medium'>
+              💬 Natural Language
+            </span>
+          </div>
           <p className='text-base sm:text-lg text-slate-500 dark:text-zinc-500 mb-8 px-4'>
-            Announcing version 3.0 with enhanced features and performance
-            improvements!
+            Version 3.0 - Enhanced with multi-model support and streaming responses
           </p>
           <div className='flex flex-col sm:flex-row justify-center gap-4 px-4'>
             <a
@@ -114,19 +128,88 @@ export default function App() {
             Key Features
           </motion.h2>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto'>
-            <AnimatedCard icon={Command} title='Interactive Mode'>
-              Engage in natural conversations with the AI assistant through an
-              intuitive command-line interface.
+            <AnimatedCard icon={Zap} title='Lightning Fast'>
+              Powered by Groq's LPU technology for blazing-fast AI responses - 
+              get answers in milliseconds, not seconds.
+            </AnimatedCard>
+            <AnimatedCard icon={Code} title='Code Generation'>
+              Generate, explain, and debug code in multiple languages. Get 
+              instant solutions to programming challenges.
+            </AnimatedCard>
+            <AnimatedCard icon={MessageSquare} title='Natural Conversations'>
+              Ask questions in plain English. Interactive mode lets you have 
+              back-and-forth conversations with context retention.
+            </AnimatedCard>
+            <AnimatedCard icon={Layers} title='Multiple AI Models'>
+              Access various Groq models optimized for different tasks - from 
+              quick answers to complex reasoning.
             </AnimatedCard>
             <AnimatedCard icon={Settings} title='Easy Configuration'>
-              Simple setup with your Groq API key and automatic environment
-              configuration.
+              Simple one-command setup with your Groq API key. Automatic 
+              environment configuration and updates.
             </AnimatedCard>
-            <AnimatedCard icon={RefreshCw} title='Quick Updates'>
-              Stay up-to-date with the latest features through our simple update
-              mechanism.
+            <AnimatedCard icon={Command} title='Flexible Usage Modes'>
+              Choose between interactive sessions for deep work or direct mode 
+              for quick queries. Silent mode for script integration.
             </AnimatedCard>
           </div>
+        </div>
+      </section>
+
+      {/* Why Bro Section */}
+      <section className='py-16 relative'>
+        <div className='container mx-auto px-4'>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className='text-2xl sm:text-3xl font-bold text-center mb-8 text-blue-600 dark:text-blue-400'
+          >
+            Why Choose Bro?
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className='max-w-4xl mx-auto'
+          >
+            <div className='grid md:grid-cols-2 gap-6'>
+              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+                  🚀 Unmatched Speed
+                </h3>
+                <p className='text-slate-600 dark:text-zinc-400'>
+                  Groq's LPU technology delivers responses up to 10x faster than traditional cloud AI services. No more waiting - get instant help when you need it.
+                </p>
+              </div>
+              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+                  💻 Developer-First
+                </h3>
+                <p className='text-slate-600 dark:text-zinc-400'>
+                  Built by developers, for developers. Works seamlessly in your terminal workflow without breaking your focus.
+                </p>
+              </div>
+              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+                  🔒 Privacy Focused
+                </h3>
+                <p className='text-slate-600 dark:text-zinc-400'>
+                  Your API key stays on your machine. All communications are direct to Groq - no middlemen, no data collection.
+                </p>
+              </div>
+              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+                  🎯 Simple & Powerful
+                </h3>
+                <p className='text-slate-600 dark:text-zinc-400'>
+                  No complex setup, no learning curve. Just ask questions in natural language and get accurate, helpful responses.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
