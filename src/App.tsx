@@ -6,7 +6,6 @@ import {
   Download,
   Command,
   Settings,
-  RefreshCw,
   Zap,
   Code,
   MessageSquare,
