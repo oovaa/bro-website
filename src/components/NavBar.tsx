@@ -89,6 +89,9 @@ export const NavBar = () => {
           <a href='#usage' className={desktopNavLinkClasses}>
             Usage
           </a>
+          <a href='#faq' className={desktopNavLinkClasses}>
+            FAQ
+          </a>
           <button
             onClick={() => setDarkMode(!darkMode)}
             className='p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-zinc-800 transition-colors text-slate-600 dark:text-zinc-400'
@@ -132,6 +135,13 @@ export const NavBar = () => {
               onClick={closeMobileMenu}
             >
               Usage
+            </a>
+            <a
+              href='#faq'
+              className={navLinkClasses}
+              onClick={closeMobileMenu}
+            >
+              FAQ
             </a>
             <div className='px-4 py-3 border-b border-slate-200 dark:border-zinc-700 w-full flex justify-between items-center'>
               <span className='text-slate-600 dark:text-zinc-400'>Theme</span>
