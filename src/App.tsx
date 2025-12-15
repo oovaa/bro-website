@@ -346,6 +346,69 @@ export default function App() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id='faq' className='py-16 relative scroll-mt-20'>
+        <div className='container mx-auto px-4'>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className='text-2xl sm:text-3xl font-bold text-center mb-12 text-blue-600 dark:text-blue-400'
+          >
+            Frequently Asked Questions
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className='max-w-3xl mx-auto space-y-6'
+          >
+            <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+              <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
+                What is Groq and why is it so fast?
+              </h3>
+              <p className='text-slate-600 dark:text-zinc-400'>
+                Groq is a company that builds specialized AI processors called LPUs (Language Processing Units). Unlike traditional GPUs, LPUs are designed specifically for running large language models, making them incredibly fast - often 10x faster than cloud-based alternatives.
+              </p>
+            </div>
+            <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+              <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
+                How do I get a Groq API key?
+              </h3>
+              <p className='text-slate-600 dark:text-zinc-400'>
+                Visit <a href='https://console.groq.com' target='_blank' rel='noopener noreferrer' className='text-blue-600 dark:text-blue-400 hover:underline'>console.groq.com</a> to sign up for a free account. Groq offers generous free tier usage, making it perfect for developers getting started with AI-powered tools.
+              </p>
+            </div>
+            <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+              <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
+                Can I use bro offline?
+              </h3>
+              <p className='text-slate-600 dark:text-zinc-400'>
+                Bro requires an internet connection to communicate with Groq's API. However, your API key and conversation history are stored locally on your machine for privacy and quick access.
+              </p>
+            </div>
+            <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+              <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
+                Is my code and data secure?
+              </h3>
+              <p className='text-slate-600 dark:text-zinc-400'>
+                Yes! Your API key stays on your machine, and all communications go directly to Groq's servers. We don't collect, store, or analyze any of your queries or code. Check Groq's privacy policy for details on how they handle data.
+              </p>
+            </div>
+            <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
+              <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
+                What programming languages does bro support?
+              </h3>
+              <p className='text-slate-600 dark:text-zinc-400'>
+                Bro can help with any programming language! The underlying AI models have been trained on a vast range of code, including Python, JavaScript, TypeScript, Go, Rust, Java, C++, and many more. It can generate code, explain concepts, debug issues, and answer questions across all major languages.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className='py-12 text-center text-slate-500 bg-slate-100 dark:text-zinc-400 dark:bg-zinc-950 relative'>
         <div className='container mx-auto px-4'>
