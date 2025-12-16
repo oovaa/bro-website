@@ -234,21 +234,41 @@ export default function App() {
             <div className='space-y-6'>
               <div>
                 <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                  1. Clone the Repository
+                  1. Get Your Groq API Key
+                </h3>
+                <p className='text-slate-600 dark:text-zinc-400 mb-3'>
+                  Visit{' '}
+                  <a
+                    href='https://console.groq.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-600 dark:text-blue-400 hover:underline font-medium'
+                  >
+                    console.groq.com
+                  </a>{' '}
+                  to sign up for a free account and generate your API key. Groq offers a generous free tier perfect for getting started.
+                </p>
+              </div>
+              <div>
+                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
+                  2. Clone the Repository
                 </h3>
                 <Terminal command='git clone https://github.com/oovaa/bro.git' />
               </div>
               <div>
                 <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                  2. Navigate to Project
+                  3. Navigate to Project
                 </h3>
                 <Terminal command='cd bro' />
               </div>
               <div>
                 <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                  3. Install with API Key
+                  4. Run Installation
                 </h3>
-                <Terminal command='./install GROQ_API_KEY' />
+                <Terminal command='./install' />
+                <p className='text-slate-600 dark:text-zinc-400 mt-3 text-sm'>
+                  The installer will prompt you to enter your Groq API key during setup.
+                </p>
               </div>
             </div>
           </motion.div>
