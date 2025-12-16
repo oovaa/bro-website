@@ -41,36 +41,62 @@ export default function App() {
             Lightning-fast AI assistant powered by Groq - Get instant answers, code generation, and debugging help directly in your terminal
           </p>
           <div className='flex flex-wrap justify-center gap-2 mb-6 px-4'>
-            <span className='bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium'>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+              className='bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium cursor-default shadow-sm hover:shadow-md hover:shadow-blue-500/20 transition-shadow border border-blue-200 dark:border-blue-800'
+            >
               ⚡ Groq-Powered
-            </span>
-            <span className='bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-sm font-medium'>
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+              className='bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-sm font-medium cursor-default shadow-sm hover:shadow-md hover:shadow-teal-500/20 transition-shadow border border-teal-200 dark:border-teal-800'
+            >
               🚀 Ultra-Fast Responses
-            </span>
-            <span className='bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-sm font-medium'>
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+              className='bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-3 py-1 rounded-full text-sm font-medium cursor-default shadow-sm hover:shadow-md hover:shadow-purple-500/20 transition-shadow border border-purple-200 dark:border-purple-800'
+            >
               💬 Natural Language
-            </span>
+            </motion.span>
           </div>
           <p className='text-base sm:text-lg text-slate-500 dark:text-zinc-500 mb-8 px-4'>
             Version 3.0 - Enhanced with multi-model support and streaming responses
           </p>
           <div className='flex flex-col sm:flex-row justify-center gap-4 px-4'>
-            <a
+            <motion.a
               href='#installation'
-              className='bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200 ease-in-out hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5'
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className='bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:shadow-xl hover:shadow-blue-500/40 relative overflow-hidden group'
             >
-              <Download size={20} />
-              Installation Guide
-            </a>
-            <a
+              <div className='absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/30 to-blue-400/0 opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity' 
+                   style={{ backgroundSize: '200% 100%' }} />
+              <Download size={20} className='relative z-10' />
+              <span className='relative z-10'>Installation Guide</span>
+            </motion.a>
+            <motion.a
               href='https://github.com/oovaa/bro'
               target='_blank'
               rel='noopener noreferrer'
-              className='bg-slate-700 hover:bg-slate-800 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-slate-600 dark:border-zinc-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200 ease-in-out hover:shadow-lg hover:shadow-slate-500/20 dark:hover:shadow-zinc-500/20 transform hover:-translate-y-0.5'
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className='bg-slate-700 hover:bg-slate-800 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-slate-600 dark:border-zinc-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 ease-in-out hover:shadow-xl hover:shadow-slate-500/30 dark:hover:shadow-zinc-500/30 relative overflow-hidden group'
             >
-              <Github size={20} />
-              View on GitHub
-            </a>
+              <div className='absolute inset-0 bg-gradient-to-r from-slate-400/0 via-slate-400/20 to-slate-400/0 dark:from-zinc-400/0 dark:via-zinc-400/20 dark:to-zinc-400/0 opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity' 
+                   style={{ backgroundSize: '200% 100%' }} />
+              <Github size={20} className='relative z-10' />
+              <span className='relative z-10'>View on GitHub</span>
+            </motion.a>
           </div>
         </motion.div>
       </header>
@@ -175,38 +201,70 @@ export default function App() {
             className='max-w-4xl mx-auto'
           >
             <div className='grid md:grid-cols-2 gap-6'>
-              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
-                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-600/20 relative overflow-hidden group cursor-pointer'
+              >
+                <div className='absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-600/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100 relative z-10'>
                   🚀 Unmatched Speed
                 </h3>
-                <p className='text-slate-600 dark:text-zinc-400'>
+                <p className='text-slate-600 dark:text-zinc-400 relative z-10'>
                   Groq's LPU technology delivers responses up to 10x faster than traditional cloud AI services. No more waiting - get instant help when you need it.
                 </p>
-              </div>
-              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
-                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 hover:border-teal-400 dark:hover:border-teal-500 transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/10 dark:hover:shadow-teal-600/20 relative overflow-hidden group cursor-pointer'
+              >
+                <div className='absolute inset-0 bg-gradient-to-br from-teal-50/50 to-transparent dark:from-teal-600/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100 relative z-10'>
                   💻 Developer-First
                 </h3>
-                <p className='text-slate-600 dark:text-zinc-400'>
+                <p className='text-slate-600 dark:text-zinc-400 relative z-10'>
                   Built by developers, for developers. Works seamlessly in your terminal workflow without breaking your focus.
                 </p>
-              </div>
-              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
-                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 hover:border-purple-400 dark:hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 dark:hover:shadow-purple-600/20 relative overflow-hidden group cursor-pointer'
+              >
+                <div className='absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-600/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100 relative z-10'>
                   🔒 Privacy Focused
                 </h3>
-                <p className='text-slate-600 dark:text-zinc-400'>
+                <p className='text-slate-600 dark:text-zinc-400 relative z-10'>
                   Your API key stays on your machine. All communications are direct to Groq - no middlemen, no data collection.
                 </p>
-              </div>
-              <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
-                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100'>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700 hover:border-green-400 dark:hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 dark:hover:shadow-green-600/20 relative overflow-hidden group cursor-pointer'
+              >
+                <div className='absolute inset-0 bg-gradient-to-br from-green-50/50 to-transparent dark:from-green-600/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100 relative z-10'>
                   🎯 Simple & Powerful
                 </h3>
-                <p className='text-slate-600 dark:text-zinc-400'>
+                <p className='text-slate-600 dark:text-zinc-400 relative z-10'>
                   No complex setup, no learning curve. Just ask questions in natural language and get accurate, helpful responses.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -229,27 +287,83 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className='max-w-3xl mx-auto bg-slate-50 dark:bg-zinc-850 p-6 sm:p-8 rounded-lg border border-slate-200 dark:border-zinc-700 shadow-xl shadow-slate-200/70 dark:shadow-xl dark:shadow-zinc-900/30'
+            className='max-w-3xl mx-auto bg-slate-50 dark:bg-zinc-850 p-6 sm:p-8 rounded-lg border border-slate-200 dark:border-zinc-700 shadow-xl shadow-slate-200/70 dark:shadow-xl dark:shadow-zinc-900/30 relative overflow-hidden'
           >
-            <div className='space-y-6'>
-              <div>
-                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                  1. Clone the Repository
+            {/* Animated gradient background */}
+            <div className='absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-teal-50/50 dark:from-blue-950/20 dark:via-transparent dark:to-teal-950/20 opacity-50' />
+            <div className='space-y-6 relative z-10'>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className='group'
+              >
+                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100 flex items-center gap-2'>
+                  <span className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold group-hover:scale-110 transition-transform'>1</span>
+                  Get Your Groq API Key
                 </h3>
-                <Terminal command='git clone https://github.com/oovaa/bro.git' />
-              </div>
-              <div>
-                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                  2. Navigate to Project
+                <p className='text-slate-600 dark:text-zinc-400 mb-3 ml-10'>
+                  Visit{' '}
+                  <a
+                    href='https://console.groq.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-600 dark:text-blue-400 hover:underline font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-full after:transition-all after:duration-300'
+                  >
+                    console.groq.com
+                  </a>{' '}
+                  to sign up for a free account and generate your API key. Groq offers a generous free tier perfect for getting started.
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className='group'
+              >
+                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100 flex items-center gap-2'>
+                  <span className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold group-hover:scale-110 transition-transform'>2</span>
+                  Clone the Repository
                 </h3>
-                <Terminal command='cd bro' />
-              </div>
-              <div>
-                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                  3. Install with API Key
+                <div className='ml-10'>
+                  <Terminal command='git clone https://github.com/oovaa/bro.git' />
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className='group'
+              >
+                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100 flex items-center gap-2'>
+                  <span className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold group-hover:scale-110 transition-transform'>3</span>
+                  Navigate to Project
                 </h3>
-                <Terminal command='./install GROQ_API_KEY' />
-              </div>
+                <div className='ml-10'>
+                  <Terminal command='cd bro' />
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                viewport={{ once: true }}
+                className='group'
+              >
+                <h3 className='text-lg sm:text-xl font-semibold mb-2 text-slate-700 dark:text-zinc-100 flex items-center gap-2'>
+                  <span className='inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white text-sm font-bold group-hover:scale-110 transition-transform'>4</span>
+                  Run Installation
+                </h3>
+                <div className='ml-10'>
+                  <Terminal command='./install' />
+                  <p className='text-slate-600 dark:text-zinc-400 mt-3 text-sm'>
+                    The installer will prompt you to enter your Groq API key during setup.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
