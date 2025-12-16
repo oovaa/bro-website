@@ -28,13 +28,13 @@ export const Terminal = ({
   }
 
   return (
-    <div className='w-full bg-slate-100 dark:bg-zinc-850 p-4 sm:p-6 rounded-lg border border-slate-300 dark:border-zinc-700 font-mono text-xs sm:text-sm relative group transition-colors duration-300 ease-in-out shadow-md shadow-slate-200/70 dark:shadow-xl dark:shadow-zinc-900/30'>
-      <div className='absolute top-2.5 left-3 sm:top-3 sm:left-4 flex gap-1.5 sm:gap-2'>
-        {' '}
-        {/* Adjusted dot sizes/positioning via sm: prefixes */}
-        <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/90 dark:bg-red-500/70' />
-        <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/90 dark:bg-yellow-500/70' />
-        <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/90 dark:bg-green-500/70' />
+    <div className='w-full bg-slate-100 dark:bg-zinc-850 p-4 sm:p-6 rounded-lg border border-slate-300 dark:border-zinc-700 font-mono text-xs sm:text-sm relative group transition-all duration-300 ease-in-out shadow-md shadow-slate-200/70 dark:shadow-xl dark:shadow-zinc-900/30 hover:shadow-lg hover:shadow-slate-300/80 dark:hover:shadow-2xl dark:hover:shadow-zinc-900/50 hover:border-blue-400/50 dark:hover:border-blue-500/50 hover:-translate-y-1'>
+      {/* Subtle glow effect on hover */}
+      <div className='absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+      <div className='absolute top-2.5 left-3 sm:top-3 sm:left-4 flex gap-1.5 sm:gap-2 relative z-10'>
+        <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/90 dark:bg-red-500/70 group-hover:animate-pulse' />
+        <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/90 dark:bg-yellow-500/70 group-hover:animate-pulse animation-delay-100' />
+        <div className='w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/90 dark:bg-green-500/70 group-hover:animate-pulse animation-delay-200' />
       </div>
 
       <div className='mt-6 sm:mt-8'>

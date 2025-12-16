@@ -55,4 +55,13 @@ html {
   .dark .scrollbar-thin {
     scrollbar-color: #3f3f46 transparent; /* thumb track for dark mode */
   }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
 }
