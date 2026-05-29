@@ -38,7 +38,7 @@ export default function App() {
             bro CLI Tool
           </h1>
           <p className='text-lg sm:text-xl text-slate-600 dark:text-zinc-400 mb-4 max-w-2xl mx-auto px-4'>
-            Lightning-fast AI assistant powered by Groq - Get instant answers, code generation, and debugging help directly in your terminal
+            AI-powered CLI assistant running on Together AI and Groq - Get instant answers, code generation, web search, and debugging help directly in your terminal
           </p>
           <div className='flex flex-wrap justify-center gap-2 mb-6 px-4'>
             <motion.span
@@ -48,7 +48,7 @@ export default function App() {
               whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
               className='bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium cursor-default shadow-sm hover:shadow-md hover:shadow-blue-500/20 transition-shadow border border-blue-200 dark:border-blue-800'
             >
-              ⚡ Groq-Powered
+              🤖 Together AI + Groq
             </motion.span>
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
@@ -57,7 +57,7 @@ export default function App() {
               whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
               className='bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-sm font-medium cursor-default shadow-sm hover:shadow-md hover:shadow-teal-500/20 transition-shadow border border-teal-200 dark:border-teal-800'
             >
-              🚀 Ultra-Fast Responses
+              🔍 Web Search Built-in
             </motion.span>
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
@@ -70,7 +70,7 @@ export default function App() {
             </motion.span>
           </div>
           <p className='text-base sm:text-lg text-slate-500 dark:text-zinc-500 mb-8 px-4'>
-            Version 3.0 - Enhanced with multi-model support and streaming responses
+            Version 1.4 - Powered by Together AI with Groq fallback and built-in web search
           </p>
           <div className='flex flex-col sm:flex-row justify-center gap-4 px-4'>
             <motion.a
@@ -153,9 +153,8 @@ export default function App() {
             Key Features
           </motion.h2>
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto'>
-            <AnimatedCard icon={Zap} title='Lightning Fast'>
-              Powered by Groq's LPU technology for blazing-fast AI responses - 
-              get answers in milliseconds, not seconds.
+            <AnimatedCard icon={Zap} title='Multi-Model AI'>
+              Powered by Together AI (Qwen 3.5) as primary with automatic fallback to GLM-5 and Kimi-K2.5 for reliable, fast responses.
             </AnimatedCard>
             <AnimatedCard icon={Code} title='Code Generation'>
               Generate, explain, and debug code in multiple languages. Get 
@@ -165,17 +164,16 @@ export default function App() {
               Ask questions in plain English. Interactive mode lets you have 
               back-and-forth conversations with context retention.
             </AnimatedCard>
-            <AnimatedCard icon={Layers} title='Multiple AI Models'>
-              Access various Groq models optimized for different tasks - from 
-              quick answers to complex reasoning.
+            <AnimatedCard icon={Layers} title='Web Search'>
+              Built-in web search via Tavily (or DuckDuckGo fallback) - bro can look up current information and provide up-to-date answers.
             </AnimatedCard>
             <AnimatedCard icon={Settings} title='Easy Configuration'>
-              Simple one-command setup with your Groq API key. Automatic 
+              Simple one-command setup with your API keys. Automatic 
               environment configuration and updates.
             </AnimatedCard>
             <AnimatedCard icon={Command} title='Flexible Usage Modes'>
               Choose between interactive sessions for deep work or direct mode 
-              for quick queries.
+              for quick one-shot queries.
             </AnimatedCard>
           </div>
         </div>
@@ -211,10 +209,10 @@ export default function App() {
               >
                 <div className='absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-blue-600/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100 relative z-10'>
-                  🚀 Unmatched Speed
+                  🚀 Multi-Model Reliability
                 </h3>
                 <p className='text-slate-600 dark:text-zinc-400 relative z-10'>
-                  Groq's LPU technology delivers responses up to 10x faster than traditional cloud AI services. No more waiting - get instant help when you need it.
+                  If one model is down, bro automatically falls back to the next. Three providers ensure you always get a response.
                 </p>
               </motion.div>
               <motion.div
@@ -243,10 +241,10 @@ export default function App() {
               >
                 <div className='absolute inset-0 bg-gradient-to-br from-purple-50/50 to-transparent dark:from-purple-600/5 dark:to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                 <h3 className='text-lg font-semibold mb-3 text-slate-700 dark:text-zinc-100 relative z-10'>
-                  🔒 Privacy Focused
+                  🔍 Web Search
                 </h3>
                 <p className='text-slate-600 dark:text-zinc-400 relative z-10'>
-                  Your API key stays on your machine. All communications are direct to Groq - no middlemen, no data collection.
+                  Bro can search the web in real-time via Tavily or DuckDuckGo, giving you current information beyond the model's training data.
                 </p>
               </motion.div>
               <motion.div
@@ -315,6 +313,18 @@ export default function App() {
                   </a>{' '}
                   to sign up for a free account and generate your API key. Groq offers a generous free tier perfect for getting started.
                 </p>
+                <p className='text-slate-600 dark:text-zinc-400 mb-3 ml-10 text-sm'>
+                  For web search, optionally get a{' '}
+                  <a
+                    href='https://tavily.com'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-blue-600 dark:text-blue-400 hover:underline font-medium hover:text-blue-700 dark:hover:text-blue-300 transition-colors'
+                  >
+                    Tavily API key
+                  </a>{' '}
+                  for higher-quality search results (DuckDuckGo is used as fallback).
+                </p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -358,9 +368,9 @@ export default function App() {
                   Run Installation
                 </h3>
                 <div className='ml-10'>
-                  <Terminal command='./install' />
+                  <Terminal command='./install <GROQ_API_KEY> [TAVILY_API_KEY]' />
                   <p className='text-slate-600 dark:text-zinc-400 mt-3 text-sm'>
-                    The installer will prompt you to enter your Groq API key during setup.
+                    The installer accepts your Groq API key and an optional Tavily API key for web search.
                   </p>
                 </div>
               </motion.div>
@@ -454,26 +464,18 @@ export default function App() {
           >
             <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
               <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                What is Groq and why is it so fast?
+                What AI models does bro use?
               </h3>
               <p className='text-slate-600 dark:text-zinc-400'>
-                Groq is a company that builds specialized AI processors called LPUs (Language Processing Units). Unlike traditional GPUs, LPUs are designed specifically for running large language models, making them incredibly fast - often 10x faster than cloud-based alternatives.
+                Bro uses Together AI as the primary provider with the Qwen 3.5 model. If it's unavailable, bro automatically falls back to GLM-5 and Kimi-K2.5. A secondary Groq-based model is also available as a fallback option.
               </p>
             </div>
             <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
               <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                How do I get a Groq API key?
+                Does bro support web search?
               </h3>
               <p className='text-slate-600 dark:text-zinc-400'>
-                Visit <a href='https://console.groq.com' target='_blank' rel='noopener noreferrer' className='text-blue-600 dark:text-blue-400 hover:underline'>console.groq.com</a> to sign up for a free account. Groq offers generous free tier usage, making it perfect for developers getting started with AI-powered tools.
-              </p>
-            </div>
-            <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
-              <h3 className='text-lg font-semibold mb-2 text-slate-700 dark:text-zinc-100'>
-                Can I use bro offline?
-              </h3>
-              <p className='text-slate-600 dark:text-zinc-400'>
-                Bro requires an internet connection to communicate with Groq's API. However, your API key and conversation history are stored locally on your machine for privacy and quick access.
+                Yes! Bro includes built-in web search. It uses Tavily for higher-quality results when a TAVILY_API_KEY is configured, otherwise falls back to DuckDuckGo automatically.
               </p>
             </div>
             <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>
@@ -481,7 +483,7 @@ export default function App() {
                 Is my code and data secure?
               </h3>
               <p className='text-slate-600 dark:text-zinc-400'>
-                Yes! Your API key stays on your machine, and all communications go directly to Groq's servers. We don't collect, store, or analyze any of your queries or code. Check Groq's privacy policy for details on how they handle data.
+                Yes! Your API keys stay on your machine. All communications go directly to Together AI and Groq's servers. Bro is fully open source - you can audit exactly what it does.
               </p>
             </div>
             <div className='bg-slate-50 dark:bg-zinc-850 p-6 rounded-lg border border-slate-200 dark:border-zinc-700'>

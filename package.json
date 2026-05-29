@@ -1,7 +1,7 @@
 {
-  "name": "groq-ai-assistant",
+  "name": "bro",
   "private": true,
-  "version": "3.0.0",
+  "version": "1.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
